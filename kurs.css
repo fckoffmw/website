@@ -1,0 +1,836 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Верхняя черная полоска с информацией */
+.header-info {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.header-info p {
+    margin: 0;
+}
+
+.header-info .button {
+    background-color: #fff;
+    color: #000;
+    padding: 8px 15px;
+    font-size: 12px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+}
+/* Добавляем пульсацию при наведении */
+.header-info .button:hover {
+    animation: pulse-hover 0.6s ease-in-out;
+}
+
+/* Анимация пульсации */
+@keyframes pulse-hover {
+    0% {
+        transform: scale(1); /* Исходное состояние */
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: scale(1.1); /* Лёгкое увеличение */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Тень при увеличении */
+    }
+    100% {
+        transform: scale(1); /* Возврат к исходному состоянию */
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+/* Header (логотип + навигация) */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: #fff;
+}
+
+.logo img {
+    height: 50px;
+}
+
+#nav-bar .menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+#nav-bar .menu li {
+    display: inline-block;
+}
+
+#nav-bar .menu li a.btn-nav {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+#nav-bar .menu li a.btn-nav:hover {
+    background-color: #444;
+}
+/* Основные стили для бургер-меню */
+.burger-menu {
+    display: none;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.burger-menu span {
+    display: block;
+    height: 3px;
+    background: black;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Анимация бургер-меню при активном состоянии */
+.burger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+}
+
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+}
+
+/* Скрываем меню по умолчанию */
+#nav-bar {
+    display: none; /* Скрыто по умолчанию */
+    position: absolute;
+    top: 125px; /* Расположено ниже кнопки бургер */
+    right: 10px;
+    background: #e2c9c9;
+    border-radius: 8px;
+    padding: 10px 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    opacity: 0; /* Для анимации */
+    visibility: hidden; /* Скрываем визуально */
+    transform: translateY(-10px); /* Начальная позиция для анимации */
+    transition: all 0.3s ease; /* Плавное появление */
+}
+
+/* Меню при активном состоянии */
+#nav-bar.active {
+    display: flex; /* Появляется меню */
+    opacity: 1; /* Показываем */
+    visibility: visible; /* Делаем видимым */
+    transform: translateY(0); /* Возвращаем в положение */
+}
+
+/* Адаптация: бургер-меню только на мобильных */
+@media (max-width: 768px) {
+    .burger-menu {
+        display: flex; /* Показываем бургер-меню */
+    }
+
+    #nav-bar {
+        display: none; /* Скрываем меню по умолчанию */
+    }
+
+    #nav-bar.active {
+        display: flex; /* Появляется меню при клике */
+    }
+}
+
+/* Адаптация: на больших экранах горизонтальное меню */
+@media (min-width: 769px) {
+    .burger-menu {
+        display: none; /* Скрываем бургер-меню */
+    }
+
+    #nav-bar {
+        display: flex; /* Горизонтальное меню */
+        position: static;
+        flex-direction: row;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+}
+/* Hero Section */
+#hero {
+    position: relative;
+    background: url('logo.jpg.webp') no-repeat center center/cover;
+    height: 500px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-content {
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.hero-content h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.hero-content .button {
+    background-color: #fff;
+    color: #000;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 4px;
+}
+
+.hero-content .button:hover {
+    background-color: #ddd;
+}
+
+/* Основной стиль секции */
+#cards-section {
+    padding: 40px;
+    text-align: center;
+    background-color: #f7f7f7;
+    font-family: 'Arial', sans-serif;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+.card h3 {
+    font-size: 20px;
+    color: #333;
+    margin: 15px 0;
+}
+
+.card p {
+    font-size: 16px;
+    color: #666;
+    margin: 0 15px 15px;
+}
+
+.card button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+    background-color: #555;
+}
+
+/* Анимация при наведении */
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+/* Стили для скрываемого текста */
+.details {
+    display: none; /* Изначально скрыто */
+    padding: 10px 15px;
+    color: #666;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ddd;
+    border-radius: 0 0 10px 10px; /* Закругление низа карточки */
+}
+
+/* Стиль кнопки при активной карточке */
+.card.active button {
+    background-color: #555;
+    color: white;
+}
+#cards-section h2 {
+    text-align: center; /* Центрируем текст */
+    margin: 20px 0; /* Отступы сверху и снизу */
+    font-size: 2rem; /* Увеличиваем размер шрифта */
+    color: #333; /* Цвет текста */
+    font-weight: bold; /* Жирный текст */
+}
+#gallery h2 {
+    text-align: center; /* Центрируем текст */
+    margin: 20px 0; /* Отступы сверху и снизу */
+    font-size: 2rem; /* Увеличиваем размер шрифта */
+    color: #333; /* Цвет текста */
+    font-weight: bold; /* Жирный текст */
+}
+/* Контейнер галереи */
+.horizontal-gallery-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Центрируем содержимое */
+    overflow: hidden;
+    background-color: #111;
+    padding: 20px 0;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Горизонтальная галерея */
+.horizontal-gallery {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    width: 100%;
+    padding: 0 20px; /* Уменьшаем отступы для компактности */
+    box-sizing: border-box; /* Чтобы padding не выходил за пределы */
+}
+
+/* Карточки */
+.gallery-item {
+    flex: 0 0 auto;
+    width: 250px; /* Ширина каждого элемента */
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Убираем масштабирование изображений при уменьшении экрана */
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Параметры карточки */
+.gallery-item p {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Эффект для карточки при наведении */
+.gallery-item:hover {
+    transform: translateY(-10px); /* Лёгкий подъем карточки */
+    transition: transform 0.3s ease;
+}
+
+/* Кнопки прокрутки */
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.scroll-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Левая кнопка */
+.scroll-btn.left {
+    left: 10px;
+}
+
+/* Правая кнопка */
+.scroll-btn.right {
+    right: 10px;
+}
+
+/* Скрываем полосу прокрутки */
+.horizontal-gallery::-webkit-scrollbar {
+    display: none;
+}
+
+.horizontal-gallery {
+    -ms-overflow-style: none; /* IE */
+    scrollbar-width: none; /* Firefox */
+}
+
+/* Основной контейнер футера */
+footer {
+    background-color: #111; /* Темный фон для футера */
+    color: #fff; /* Белый текст */
+    padding: 20px 0; /* Отступы сверху и снизу */
+    text-align: center; /* Центрируем весь текст */
+    font-size: 1rem; /* Умеренный размер текста */
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.3); /* Тень сверху */
+}
+
+.footer-container p {
+    margin: 10px 0; /* Отступы между текстами */
+    color: #ccc; /* Немного приглушенный белый цвет для текста */
+}
+
+.footer-container strong {
+    color: #fff; /* Выделяем имя разработчика белым цветом */
+}
+
+/* Адрес */
+footer address {
+    font-style: normal; /* Убираем курсив для текста адреса */
+    margin: 15px 0;
+    color: #aaa; /* Серый цвет текста */
+}
+
+footer address a {
+    color: #fff; /* Цвет ссылки */
+    text-decoration: none; /* Убираем подчеркивание */
+    font-weight: bold;
+}
+
+footer address a:hover {
+    color: #ffd700; /* Золотой цвет при наведении */
+}
+
+/* Социальные кнопки */
+.social-buttons {
+    display: flex;
+    justify-content: center; /* Центрируем кнопки */
+    gap: 15px; /* Расстояние между кнопками */
+    margin-top: 15px;
+}
+
+.social-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Круглая форма */
+    background-color: #444; /* Темно-серый фон */
+    color: #fff; /* Белый цвет иконок */
+    font-size: 1.2rem; /* Увеличенный размер иконок */
+    transition: background-color 0.3s, transform 0.3s; /* Плавный эффект */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+.social-button:hover {
+    background-color: #ffd700; /* Золотой цвет при наведении */
+    transform: scale(1.2); /* Увеличение кнопки */
+}
+
+/* Индивидуальные цвета для каждой соцсети */
+.social-button.facebook:hover {
+    background-color: #3b5998; /* Facebook синий */
+}
+
+.social-button.twitter:hover {
+    background-color: #1da1f2; /* Twitter голубой */
+}
+
+.social-button.instagram:hover {
+    background-color: #e4405f; /* Instagram розовый */
+}
+
+.social-button.linkedin:hover {
+    background-color: #0077b5; /* LinkedIn синий */
+}
+
+.social-button.youtube:hover {
+    background-color: #ff0000; /* YouTube красный */
+}
+/* Основные стили секции */
+#beauty-trends {
+    padding: 40px 30px;
+    background-color: #f7f7f7;
+    text-align: center;
+}
+
+#beauty-trends h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+/* Стили для трендов */
+.trend-item {
+    display: flex;
+    justify-content: flex-start;  /* Выравнивание элементов по левому краю */
+    align-items: center;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #cbbdbd;
+    padding: 20px; /* Добавим внутренние отступы, чтобы элементы не прилипали к краям */
+}
+
+/* Стили для изображения тренда */
+.trend-item img {
+    width: 100%;  /* Сделаем картинку гибкой */
+    max-width: 250px; /* Максимальная ширина картинки */
+    height: auto; /* Автоматическая высота в пропорциях */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 20px;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Анимация при увеличении и изменении прозрачности */
+}
+
+/* Эффект при наведении на картинку */
+.trend-item img:hover {
+    transform: scale(1.1); /* Увеличиваем картинку */
+    opacity: 0.9; /* Легкое затемнение картинки */
+}
+
+/* Стили для контента тренда */
+.trend-content {
+    max-width: 400px;
+    text-align: left;
+}
+
+/* Заголовок и описание тренда */
+.trend-content h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.trend-content p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Скрытый текст, который будет показываться при клике */
+.full-description {
+    display: none; /* Изначально скрыт */
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+
+/* Стили для ссылки "Читать далее" */
+.read-more {
+    font-size: 1.1rem;
+    color: #551d1d;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Эффект при наведении на ссылку "Читать далее" */
+.read-more:hover {
+    color: #551d1d;
+    transform: translateX(5px); /* Легкое смещение вправо при наведении */
+}
+
+/* Анимация для показа скрытого текста */
+.trend-item.active .full-description {
+    display: block;
+    animation: slideDown 0.3s ease;
+}
+
+/* Анимация для показа текста */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .trend-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .trend-item img {
+        margin-bottom: 20px;
+    }
+
+    .trend-content {
+        text-align: center;
+    }
+}
+
+/* Стили для секции отзывов */
+#reviews {
+    background-color: #cbbdbd;
+    padding: 30px;
+    margin: 40px auto;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#reviews h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+}
+
+/* Стили для формы */
+#review-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#review-form label {
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+#review-form input, #review-form select, #review-form textarea {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#review-form button {
+    padding: 10px 15px;
+    background-color: #333;
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+#review-form button:hover {
+    background-color: #555;
+}
+
+/* Стили для блока отзывов */
+#reviews-list {
+    margin-top: 30px;
+}
+
+.review-item {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.review-item strong {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.review-item p {
+    font-size: 1rem;
+    color: #666;
+}
+#review-form textarea {
+    resize: none; /* Запрещаем изменение размера текстового поля */
+}
+/* Мобильная версия */
+@media (max-width: 768px) {
+    #reviews {
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 100%;
+    }
+
+    #reviews h2 {
+        font-size: 1.5rem;
+    }
+
+    #review-form input, #review-form select, #review-form textarea {
+        font-size: 0.9rem; /* Уменьшаем размер шрифта для мобильных */
+    }
+
+    #review-form button {
+        font-size: 1rem; /* Уменьшаем размер кнопки */
+        padding: 10px 12px;
+    }
+
+    /* Уменьшаем отступы и выравнивание */
+    .review-item {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Планшетная версия */
+@media (max-width: 1024px) {
+    #reviews {
+        padding: 25px;
+        margin: 30px auto;
+        max-width: 90%;
+    }
+
+    #reviews h2 {
+        font-size: 1.8rem;
+    }
+
+    #review-form input, #review-form select, #review-form textarea {
+        font-size: 1rem;
+    }
+
+    #review-form button {
+        font-size: 1.1rem;
+        padding: 10px 15px;
+    }
+}
+
+/* Десктопная версия (по умолчанию) */
+@media (min-width: 1025px) {
+    #reviews {
+        padding: 30px;
+        margin: 40px auto;
+        max-width: 800px;
+    }
+
+    #reviews h2 {
+        font-size: 2rem;
+    }
+
+    #review-form input, #review-form select, #review-form textarea {
+        font-size: 1rem;
+    }
+
+    #review-form button {
+        font-size: 1.1rem;
+        padding: 12px 15px;
+    }
+
+    .review-item {
+        font-size: 1rem;
+    }
+}
+/* Стили для разделителя */
+.divider {
+    border: 0; /* Убираем стандартную границу */
+    height: 40px; /* Толщина полоски */
+    background-color: #000; /* Черный цвет */
+    margin: 40px 0; /* Отступы сверху и снизу */
+  }
+  /* Планшетная версия */
+@media (max-width: 1024px) {
+    /* Разметка секций */
+    #reviews {
+        padding: 30px;
+        margin: 30px auto;
+        max-width: 90%;
+    }
+
+    /* Навигация */
+    #nav-bar .menu {
+        gap: 15px;
+    }
+
+    /* Герой секции */
+    #hero {
+        height: 450px;
+    }
+
+    /* Карточки трендов */
+    .trend-item {
+        margin-bottom: 30px;
+    }
+}
+
+/* Десктопная версия (по умолчанию) */
+@media (min-width: 1025px) {
+    .card {
+        width: 300px;
+    }
+
+    /* Основной размер шрифтов */
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .hero-content p {
+        font-size: 18px;
+    }
+
+    /* Галерея */
+    .horizontal-gallery-container {
+        padding: 20px;
+    }
+}
+
+
+

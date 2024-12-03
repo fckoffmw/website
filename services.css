@@ -1,0 +1,620 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Верхняя черная полоска с информацией */
+.header-info {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.header-info p {
+    margin: 0;
+}
+
+.header-info .button {
+    background-color: #fff;
+    color: #000;
+    padding: 8px 15px;
+    font-size: 12px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+}
+/* Добавляем пульсацию при наведении */
+.header-info .button:hover {
+    animation: pulse-hover 0.6s ease-in-out;
+}
+
+/* Анимация пульсации */
+@keyframes pulse-hover {
+    0% {
+        transform: scale(1); /* Исходное состояние */
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: scale(1.1); /* Лёгкое увеличение */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Тень при увеличении */
+    }
+    100% {
+        transform: scale(1); /* Возврат к исходному состоянию */
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+/* Header (логотип + навигация) */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: #fff;
+}
+
+.logo img {
+    height: 50px;
+}
+
+#nav-bar .menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+#nav-bar .menu li {
+    display: inline-block;
+}
+
+#nav-bar .menu li a.btn-nav {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+#nav-bar .menu li a.btn-nav:hover {
+    background-color: #444;
+}
+
+/* Основные стили для бургер-меню */
+.burger-menu {
+    display: none;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.burger-menu span {
+    display: block;
+    height: 3px;
+    background: black;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Анимация бургер-меню при активном состоянии */
+.burger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+}
+
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+}
+
+/* Скрываем меню по умолчанию */
+#nav-bar {
+    display: none; /* Скрыто по умолчанию */
+    position: absolute;
+    top: 125px; /* Расположено ниже кнопки бургер */
+    right: 10px;
+    background: #e2c9c9;
+    border-radius: 8px;
+    padding: 10px 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    opacity: 0; /* Для анимации */
+    visibility: hidden; /* Скрываем визуально */
+    transform: translateY(-10px); /* Начальная позиция для анимации */
+    transition: all 0.3s ease; /* Плавное появление */
+}
+
+/* Меню при активном состоянии */
+#nav-bar.active {
+    display: flex; /* Появляется меню */
+    opacity: 1; /* Показываем */
+    visibility: visible; /* Делаем видимым */
+    transform: translateY(0); /* Возвращаем в положение */
+}
+
+/* Адаптация: бургер-меню только на мобильных */
+@media (max-width: 768px) {
+    .burger-menu {
+        display: flex; /* Показываем бургер-меню */
+    }
+
+    #nav-bar {
+        display: none; /* Скрываем меню по умолчанию */
+    }
+
+    #nav-bar.active {
+        display: flex; /* Появляется меню при клике */
+    }
+}
+
+/* Адаптация: на больших экранах горизонтальное меню */
+@media (min-width: 769px) {
+    .burger-menu {
+        display: none; /* Скрываем бургер-меню */
+    }
+
+    #nav-bar {
+        display: flex; /* Горизонтальное меню */
+        position: static;
+        flex-direction: row;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+}
+
+/* Hero Section */
+#hero {
+    position: relative;
+    background: url('360_F_608191088_ATXwUHQnOIe67Dnt7JDkzKWHDpgCfuCA.jpg') no-repeat center center/cover;
+    height: 500px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-content {
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.hero-content h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+/* Добавляем размытие фону */
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    filter: blur(3px);  /* Устанавливаем легкое размытие */
+    z-index: -1; /* Размытие будет за текстом */
+}
+main {
+    padding: 20px;
+}
+
+/* Стили для разделителя */
+.divider {
+    border: 0; /* Убираем стандартную границу */
+    height: 20px; /* Толщина полоски */
+    background-color: #000; /* Черный цвет */
+  }
+/* Корзина */
+#cart-section {
+    position: sticky;
+    top: 0;
+    background: rgba(0, 0, 0, 0.8); /* Прозрачный фон */
+    padding: 15px;
+    border-bottom: 2px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    margin-bottom: 20px;
+}
+
+#cart-section h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 1.5em;
+}
+
+#cart-content {
+    margin-top: 10px;
+}
+
+#cart-content p {
+    font-size: 0.9em;
+    color: #ffffff;
+}
+
+#cart-items {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+#cart-items li {
+    background: #f5f5f5;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    margin: 5px 0;
+    border-radius: 4px;
+}
+
+#cart-total {
+    font-size: 1.2em;
+    margin-top: 10px;
+    text-align: right;
+}
+
+/* Услуги */
+#services h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Карточка услуги */
+.service-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Разделить содержимое и кнопку */
+    align-items: center;
+    text-align: center;
+    border: 3px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Все карточки одной высоты */
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+}
+
+.service-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* Текст в карточке */
+.service-card h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.service-card p {
+    font-size: 0.9em;
+    color: #666;
+    flex-grow: 1; /* Занять оставшееся пространство */
+    margin: 10px 0;
+}
+
+/* Кнопка "Добавить в корзину" */
+.service-card .add-to-cart {
+    background-color: #5fb1d9;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+}
+
+.service-card .add-to-cart:hover {
+    background-color: #4d8fb0;
+    transform: scale(1.05);
+}
+
+/* Ховер эффект на карточке */
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Кнопка "Удалить" рядом с товарами */
+.cart-item .remove-item {
+    background-color: #ffffff;
+    color: rgb(7, 7, 7);
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 0.8em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cart-item .remove-item:hover {
+    background-color: #5fb1d9; /* Более темный красный при наведении */
+    transform: scale(1.05); /* Легкое увеличение кнопки */
+}
+
+/* Кнопка "Очистить корзину" */
+#cart-content button {
+    background-color: #ffffff;
+    color: rgb(4, 4, 4);
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 0.9em;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#cart-content button:hover {
+    background-color: #5fb1d9; 
+    transform: scale(1.05); /* Легкое увеличение кнопки */
+}
+/* Основной контейнер футера */
+footer {
+    background-color: #111; /* Темный фон для футера */
+    color: #fff; /* Белый текст */
+    padding: 20px 0; /* Отступы сверху и снизу */
+    text-align: center; /* Центрируем весь текст */
+    font-size: 1rem; /* Умеренный размер текста */
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.3); /* Тень сверху */
+}
+
+.footer-container p {
+    margin: 10px 0; /* Отступы между текстами */
+    color: #ccc; /* Немного приглушенный белый цвет для текста */
+}
+
+.footer-container strong {
+    color: #fff; /* Выделяем имя разработчика белым цветом */
+}
+
+/* Адрес */
+footer address {
+    font-style: normal; /* Убираем курсив для текста адреса */
+    margin: 15px 0;
+    color: #aaa; /* Серый цвет текста */
+}
+
+footer address a {
+    color: #fff; /* Цвет ссылки */
+    text-decoration: none; /* Убираем подчеркивание */
+    font-weight: bold;
+}
+
+footer address a:hover {
+    color: #ffd700; /* Золотой цвет при наведении */
+}
+
+/* Социальные кнопки */
+.social-buttons {
+    display: flex;
+    justify-content: center; /* Центрируем кнопки */
+    gap: 15px; /* Расстояние между кнопками */
+    margin-top: 15px;
+}
+
+.social-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Круглая форма */
+    background-color: #444; /* Темно-серый фон */
+    color: #fff; /* Белый цвет иконок */
+    font-size: 1.2rem; /* Увеличенный размер иконок */
+    transition: background-color 0.3s, transform 0.3s; /* Плавный эффект */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+.social-button:hover {
+    background-color: #ffd700; /* Золотой цвет при наведении */
+    transform: scale(1.2); /* Увеличение кнопки */
+}
+
+/* Индивидуальные цвета для каждой соцсети */
+.social-button.facebook:hover {
+    background-color: #3b5998; /* Facebook синий */
+}
+
+.social-button.twitter:hover {
+    background-color: #1da1f2; /* Twitter голубой */
+}
+
+.social-button.instagram:hover {
+    background-color: #e4405f; /* Instagram розовый */
+}
+
+.social-button.linkedin:hover {
+    background-color: #0077b5; /* LinkedIn синий */
+}
+
+.social-button.youtube:hover {
+    background-color: #ff0000; /* YouTube красный */
+}
+
+#discounts {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.discount-card {
+    display: inline-block;
+    margin: 10px;
+    padding: 20px;
+    border: 10px solid #f6d8d8;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.discount-text {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.discount-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f25757;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    animation: pulse 1.5s infinite; /* Анимация пульсации */
+}
+
+/* Ключевые кадры для пульсации */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1); /* Увеличение кнопки */
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Дополнительный эффект пульсации при наведении */
+.discount-btn:hover {
+    background-color: #601c1c; /* Изменяем цвет фона при наведении */
+}
+
+
+.faq {
+    width: 100%; /* Растягиваем секцию на всю ширину */
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    margin-top: 20px;
+}
+.faq-item {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px 0;
+}
+.arrow {
+    width: 12px;
+    height: 12px;
+    border: solid #666; /* Исходный цвет */
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease, border-color 0.3s ease; /* Добавляем плавное изменение цвета */
+}
+
+.faq-item.open .arrow {
+    transform: rotate(225deg);
+    border-color: #ff0000; /* Новый цвет при нажатии */
+}
+
+.faq-answer {
+    display: none;
+    font-size: 16px;
+    padding: 10px 0;
+}
+.faq-item.open .faq-answer {
+    display: block;
+}
+
+@media screen and (max-width: 480px) {
+    /* Дополнительная адаптация для очень маленьких экранов */
+    .header-info {
+        padding: 5px 10px;
+    }
+
+    .hero-content {
+        padding: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 24px;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr; /* Одна колонка */
+    }
+
+    .discount-btn {
+        width: 100%; /* Кнопка скидки растягивается на всю ширину */
+        padding: 12px 0;
+    }
+
+    .social-button {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .footer-container p {
+        font-size: 0.8rem;
+    }
+
+    .discount-btn {
+        font-size: 14px;
+        padding: 10px 15px;
+        width: 100%; 
+    }
+}

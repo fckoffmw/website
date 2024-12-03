@@ -1,0 +1,439 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Верхняя черная полоска с информацией */
+.header-info {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.header-info p {
+    margin: 0;
+}
+
+.header-info .button {
+    background-color: #fff;
+    color: #000;
+    padding: 8px 15px;
+    font-size: 12px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+}
+/* Добавляем пульсацию при наведении */
+.header-info .button:hover {
+    animation: pulse-hover 0.6s ease-in-out;
+}
+
+/* Анимация пульсации */
+@keyframes pulse-hover {
+    0% {
+        transform: scale(1); /* Исходное состояние */
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: scale(1.1); /* Лёгкое увеличение */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Тень при увеличении */
+    }
+    100% {
+        transform: scale(1); /* Возврат к исходному состоянию */
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+/* Header (логотип + навигация) */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: #fff;
+}
+
+.logo img {
+    height: 50px;
+}
+
+#nav-bar .menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+#nav-bar .menu li {
+    display: inline-block;
+}
+
+#nav-bar .menu li a.btn-nav {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+#nav-bar .menu li a.btn-nav:hover {
+    background-color: #444;
+}
+/* Основные стили для бургер-меню */
+.burger-menu {
+    display: none;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.burger-menu span {
+    display: block;
+    height: 3px;
+    background: black;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Анимация бургер-меню при активном состоянии */
+.burger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+}
+
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+}
+
+/* Скрываем меню по умолчанию */
+#nav-bar {
+    display: none; /* Скрыто по умолчанию */
+    position: absolute;
+    top: 125px; /* Расположено ниже кнопки бургер */
+    right: 10px;
+    background: #e2c9c9;
+    border-radius: 8px;
+    padding: 10px 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    opacity: 0; /* Для анимации */
+    visibility: hidden; /* Скрываем визуально */
+    transform: translateY(-10px); /* Начальная позиция для анимации */
+    transition: all 0.3s ease; /* Плавное появление */
+}
+
+/* Меню при активном состоянии */
+#nav-bar.active {
+    display: flex; /* Появляется меню */
+    opacity: 1; /* Показываем */
+    visibility: visible; /* Делаем видимым */
+    transform: translateY(0); /* Возвращаем в положение */
+}
+
+/* Адаптация: бургер-меню только на мобильных */
+@media (max-width: 768px) {
+    .burger-menu {
+        display: flex; /* Показываем бургер-меню */
+    }
+
+    #nav-bar {
+        display: none; /* Скрываем меню по умолчанию */
+    }
+
+    #nav-bar.active {
+        display: flex; /* Появляется меню при клике */
+    }
+}
+
+/* Адаптация: на больших экранах горизонтальное меню */
+@media (min-width: 769px) {
+    .burger-menu {
+        display: none; /* Скрываем бургер-меню */
+    }
+
+    #nav-bar {
+        display: flex; /* Горизонтальное меню */
+        position: static;
+        flex-direction: row;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+}
+
+/* Основной контейнер футера */
+footer {
+    background-color: #111; /* Темный фон для футера */
+    color: #fff; /* Белый текст */
+    padding: 20px 0; /* Отступы сверху и снизу */
+    text-align: center; /* Центрируем весь текст */
+    font-size: 1rem; /* Умеренный размер текста */
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.3); /* Тень сверху */
+}
+
+.footer-container p {
+    margin: 10px 0; /* Отступы между текстами */
+    color: #ccc; /* Немного приглушенный белый цвет для текста */
+}
+
+.footer-container strong {
+    color: #fff; /* Выделяем имя разработчика белым цветом */
+}
+
+/* Адрес */
+footer address {
+    font-style: normal; /* Убираем курсив для текста адреса */
+    margin: 15px 0;
+    color: #aaa; /* Серый цвет текста */
+}
+
+footer address a {
+    color: #fff; /* Цвет ссылки */
+    text-decoration: none; /* Убираем подчеркивание */
+    font-weight: bold;
+}
+
+footer address a:hover {
+    color: #ffd700; /* Золотой цвет при наведении */
+}
+
+/* Социальные кнопки */
+.social-buttons {
+    display: flex;
+    justify-content: center; /* Центрируем кнопки */
+    gap: 15px; /* Расстояние между кнопками */
+    margin-top: 15px;
+}
+
+.social-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Круглая форма */
+    background-color: #444; /* Темно-серый фон */
+    color: #fff; /* Белый цвет иконок */
+    font-size: 1.2rem; /* Увеличенный размер иконок */
+    transition: background-color 0.3s, transform 0.3s; /* Плавный эффект */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+.social-button:hover {
+    background-color: #ffd700; /* Золотой цвет при наведении */
+    transform: scale(1.2); /* Увеличение кнопки */
+}
+
+/* Индивидуальные цвета для каждой соцсети */
+.social-button.facebook:hover {
+    background-color: #3b5998; /* Facebook синий */
+}
+
+.social-button.twitter:hover {
+    background-color: #1da1f2; /* Twitter голубой */
+}
+
+.social-button.instagram:hover {
+    background-color: #e4405f; /* Instagram розовый */
+}
+
+.social-button.linkedin:hover {
+    background-color: #0077b5; /* LinkedIn синий */
+}
+
+.social-button.youtube:hover {
+    background-color: #ff0000; /* YouTube красный */
+}
+/* Стили для всех секций с тестами */
+#test {
+    background-color: #989393;
+    padding: 40px 30px;
+    margin: 40px auto;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 0;
+}
+
+/* Заголовок формы */
+#test h2 {
+    text-align: center; /* Центрируем текст */
+    margin: 20px 0; /* Отступы сверху и снизу */
+    font-size: 2rem; /* Увеличиваем размер шрифта */
+    color: #333; /* Цвет текста */
+    font-weight: bold; /* Жирный текст */
+}
+
+/* Вопрос в тесте */
+#test form p {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Скрытие стандартных радиокнопок */
+#test form input[type="radio"] {
+    display: none;
+}
+
+/* Кастомный стиль радиокнопок */
+#test form label {
+    display: inline-block;
+    background-color: #000; /* Черный фон для кнопок */
+    color: #fff; /* Белый текст */
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    border-radius: 30px; /* Круглая форма */
+    cursor: pointer;
+    margin-bottom: 10px; /* Добавляем небольшой отступ снизу */
+    margin-right: 15px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Эффект при наведении */
+#test form label:hover {
+    background-color: #444; /* Тёмный оттенок при наведении */
+    transform: scale(1.05); /* Увеличение кнопки */
+}
+
+/* Стили для активной радиокнопки */
+#test form input[type="radio"]:checked + label {
+    background-color: #ffffff; 
+    color: #000; /* Черный текст для активной кнопки */
+}
+
+/* Кнопка отправки */
+#test form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4e0b0b; /* Темный фон */
+    color: #fff; /* Белый текст */
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#test form button:hover {
+    background-color: #724c4c; /* Светлый оттенок при наведении */
+    transform: scale(1.05); /* Увеличение кнопки */
+}
+
+/* Стили для разделителя */
+.divider {
+    border: 0; /* Убираем стандартную границу */
+    height: 40px; /* Толщина полоски */
+    background-color: #000; /* Черный цвет */
+    margin: 40px 0; /* Отступы сверху и снизу */
+  }
+/* Общие стили */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* Уменьшен базовый размер шрифта */
+        padding: 10px; /* Добавлены отступы для предотвращения переполнения */
+    }
+
+    /* Верхняя черная полоска с информацией */
+    .header-info {
+        flex-direction: column; /* Элементы размещаются вертикально */
+        font-size: 12px; /* Уменьшен размер текста */
+        padding: 10px; /* Оптимизированы отступы */
+    }
+
+    .header-info .button {
+        font-size: 10px; /* Уменьшенный текст */
+        padding: 6px 10px; /* Меньший размер кнопок */
+    }
+
+    /* Header (логотип + навигация) */
+    .header-container {
+        flex-direction: column; /* Элементы размещаются вертикально */
+        padding: 15px; /* Уменьшенные отступы */
+    }
+
+    .logo img {
+        height: 40px; /* Меньший размер логотипа */
+    }
+
+    #nav-bar .menu {
+        flex-direction: column; /* Вертикальное меню */
+        gap: 10px; /* Меньшее расстояние между пунктами */
+    }
+
+    #nav-bar .menu li a.btn-nav {
+        font-size: 12px; /* Уменьшен размер шрифта */
+        padding: 8px 15px; /* Оптимизированы отступы */
+    }
+
+    /* Бургер-меню */
+    .burger-menu {
+        width: 25px; /* Уменьшенный размер */
+        height: 15px;
+    }
+
+    .burger-menu span {
+        height: 2px; /* Тоньше линии */
+    }
+
+    #nav-bar {
+        top: 80px; /* Положение меню ниже кнопки бургер */
+        right: 5px; /* Уменьшенные отступы */
+        padding: 10px; /* Компактное меню */
+        width: 90%; /* Меню занимает почти всю ширину экрана */
+    }
+
+    /* Основной контейнер теста */
+    #test {
+        padding: 20px 15px; /* Меньшие отступы */
+        margin: 20px auto; /* Уменьшенный отступ сверху */
+        width: 90%; /* Занимает почти всю ширину экрана */
+    }
+
+    #test h2 {
+        font-size: 1.5rem; /* Уменьшенный размер текста */
+    }
+
+    #test form p {
+        font-size: 1.2rem; /* Уменьшенный текст */
+    }
+
+    #test form label {
+        padding: 10px 20px; /* Меньшие отступы в кнопках */
+        font-size: 1rem; /* Уменьшенный текст */
+    }
+
+    #test form button {
+        font-size: 1rem; /* Уменьшенный размер шрифта */
+        padding: 10px; /* Меньше отступов */
+    }
+}

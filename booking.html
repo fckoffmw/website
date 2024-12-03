@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запись на прием</title>
+    <link rel="stylesheet" href="booking.css">
+</head>
+<body>
+    <div class="container">
+        <img src="robot-image-placeholder.png" alt="Robot Graphic" class="robot-image">
+        <h1>Давайте творить вместе!</h1>
+        <h2>Заполните анкету</h2>
+        <form action="submit_form.php" method="POST">
+            <!-- Name Field -->
+            <div class="form-group">
+                <label for="name">Ваше имя:</label>
+                <input type="text" id="name" name="name" required placeholder="Введите ваше имя">
+            </div>
+
+            <!-- Phone Number Field -->
+            <div class="form-group">
+                <label for="phone">Ваш телефон:</label>
+                <input type="tel" id="phone" name="phone" required placeholder="+7(XXX)XXX-XX-XX">
+            </div>
+
+            <!-- Project Field -->
+            <div class="form-group">
+                <label for="project">Описание услуги:</label>
+                <input type="text" id="project" name="project" required placeholder="Введите описание услуги">
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="button" id="submitButton">Оставить заявку</button>
+            </div>
+        </form>
+
+        <!-- Message Box -->
+        <p id="messageBox" class="hidden"></p>
+
+        <footer>&copy; 2024 Салон красоты. Все права защищены.</footer>
+    </div>
+    <a href="kurs.html" class="back-button">Вернуться назад</a>
+
+    <script>
+        // JavaScript for form validation
+        document.getElementById('submitButton').addEventListener('click', function () {
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const project = document.getElementById('project').value.trim();
+            const messageBox = document.getElementById('messageBox');
+
+            // Regular expression for Russian phone number format
+            const phonePattern = /^\+7\(\d{3}\)\d{3}-\d{2}-\d{2}$/;
+
+            // Check if all fields are filled
+            if (!name || !phone || !project) {
+                messageBox.textContent = "Анкета не заполнена. Пожалуйста, заполните все поля.";
+                messageBox.style.color = "red";
+                messageBox.classList.remove('hidden');
+                return;
+            }
+
+            // Validate phone number format
+            if (!phonePattern.test(phone)) {
+                messageBox.textContent = "Неверный формат телефона. Используйте формат: +7(XXX)XXX-XX-XX.";
+                messageBox.style.color = "red";
+                messageBox.classList.remove('hidden');
+                return;
+            }
+
+            // Success message
+            messageBox.textContent = "Отлично! В течение нескольких минут наш менеджер свяжется с вами для уточнения информации и подбора нужной процедуры.";
+            messageBox.style.color = "green";
+            messageBox.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>

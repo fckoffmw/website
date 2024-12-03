@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуги - Салон красоты</title>
+    <link rel="icon" type="image/x-icon" href="https://avatars.mds.yandex.net/get-ydo/1653787/2a00000175a7d94c4ad28a73b92a14421346/diploma">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Sofadi+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="services.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <!-- Верхняя черная полоска с контактной информацией -->
+        <div class="header-info">
+            <p>Пн-Сб: 8:00 to 17:00 | Позвоните нам: (+7)916-345-67-89</p>
+            <a href="booking.html" class="button">Записаться сейчас</a>
+        </div>
+        <!-- Логотип и навигация -->
+        <div class="header-container">
+            <div class="logo">
+                <img src="logo2.jpg.avif" alt="Логотип">
+            </div>
+            <!-- Бургер-меню и навигация -->
+        <div class="burger-container">
+            <div class="burger-menu" id="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav id="nav-bar">
+                <ul class="menu">
+                    <li><a href="aboutus.html" class="btn-nav">Тесты</a></li>
+                    <li><a href="kurs.html" class="btn-nav">Вернуться на главную страницу</a></li>
+                    <li><a href="contacts.html" class="btn-nav">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+        <!-- MAIN CONTENT -->
+        <main>
+            <hr class="divider">
+            <!-- Hero Section -->
+            <section id="hero">
+                <div class="hero-content">
+                    <h1>Услуги</h1>
+                    <p>
+                        Ассортимент наших студий красоты насчитывает огромное количество услуг по уходу за волосами, ногтями, лицом и телом
+                    </p>
+                </div>
+            </section>
+
+            <section id="cart-section">
+                <h2>Корзина 🛒</h2>
+                <div id="cart-content">
+                    <p>Корзина пуста</p>
+                    <ul id="cart-items"></ul>
+                    <div id="cart-total">
+                        <strong>Итого:</strong> <span id="total-price">0</span> ₽
+                    </div>
+                </div>
+            </section>
+
+            <!-- Услуги -->
+            <section id="services">
+                <h1>Наши услуги</h1>
+                <div class="services-grid">
+                    <div class="service-card" data-price="1500">
+                        <img src="nails.jpg" alt="Ногти">
+                        <h3>Ногти</h3>
+                        <p>Маникюр, наращивание, педикюр, уход и лечение</p>
+                        <button class="add-to-cart">Добавить в корзину</button>
+                    </div>
+                    <div class="service-card" data-price="1700">
+                        <img src="okrashivanie.jpg" alt="Волосы">
+                        <h3>Волосы</h3>
+                        <p>Стрижки, окрашивание, укладка</p>
+                        <button class="add-to-cart">Добавить в корзину</button>
+                    </div>
+                    <div class="service-card" data-price="800">
+                        <img src="brows.jpg" alt="Брови">
+                        <h3>Брови</h3>
+                        <p>Оформление, окрашивание</p>
+                        <button class="add-to-cart">Добавить в корзину</button>
+                    </div>
+                    <div class="service-card" data-price="900">
+                        <img src="resn.jpg" alt="Ресницы">
+                        <h3>Ресницы</h3>
+                        <p>Ламинирование, наращивание</p>
+                        <button class="add-to-cart">Добавить в корзину</button>
+                    </div>
+                    <div class="service-card" data-price="1200">
+                        <img src="kosmetology.jpg" alt="Косметология">
+                        <h3>Косметология</h3>
+                        <p>Пилинг, маски, уход за кожей</p>
+                        <button class="add-to-cart">Добавить в корзину</button>
+                    </div>
+                    <div class="service-card" data-price="1900">
+                        <img src="massaj.jpg" alt="Массаж">
+                        <h3>Массаж</h3>
+                        <p>Расслабляющий, лечебный, спортивный</p>
+                        <button class="add-to-cart">Добавить в корзину</button>
+                    </div>
+                    <div class="service-card" data-price="800">
+                        <img src="man.jpg" alt="Для мужчин">
+                        <h3>Для мужчин</h3>
+                        <p>Стрижки, уход за кожей, маникюр</p>
+                        <button class="add-to-cart">Добавить в корзину</button>
+                    </div>
+                    <!-- Новые карточки -->
+                    <div class="service-card" data-price="1000">
+                        <img src="aromaterapy.jpg" alt="Спа-уход">
+                        <h3>Спа-уход</h3>
+                        <p>Релаксирующие процедуры, ароматерапия</p>
+                        <button class="add-to-cart">Добавить в корзину</button>
+                    </div>
+                    <div class="service-card" data-price="2200">
+                        <img src="svadba.jpg" alt="Свадебный образ">
+                        <h3>Свадебный образ</h3>
+                        <p>Макияж, прическа, уход за кожей</p>
+                        <button class="add-to-cart">Добавить в корзину</button>
+                    </div>
+                    <div class="service-card" data-price="900">
+                        <img src="deti.jpg" alt="Услуги для детей">
+                        <h3>Услуги для детей</h3>
+                        <p>Детские стрижки, уход за кожей</p>
+                        <button class="add-to-cart">Добавить в корзину</button>
+                    </div>
+                </div>
+            </section>             
+            <hr class="divider">
+            <section class="faq">
+                <h2>Вопрос-Ответ</h2>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Предусмотрена ли парковка?</span>
+                        <div class="arrow"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Бесплатная городская парковка есть у каждого из наших салонов.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Возможно ли утреннее/ночное обслуживание вне режима работы?</span>
+                        <div class="arrow"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Необходимо связаться с администратором салона для уточнения времени и предварительной записи.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Входит ли мытьё волос в стоимость стрижки?</span>
+                        <div class="arrow"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Мытье и укладка волос входит в стоимость любой парикмахерской услуги.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>На каких красителях вы работаете?</span>
+                        <div class="arrow"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Все услуги выполняются на квалифицированных средствах ведущих брендов: Loreal Professionnel, Kydra la salon, Kevin Murphy ColorMe, Lebel, INOA, CHI.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Есть ли медицинские лицензии на услуги по косметологии?</span>
+                        <div class="arrow"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Медицинские процедуры выполняются по лицензии в соответствии с Законом о лицензировании.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Можно ли приобрести подарочный сертификат в салоне красоты?</span>
+                        <div class="arrow"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Сертификат можно приобрести в любом из наших салонов.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="discounts">
+                <h2>Скидки и акции</h2>
+                <div class="discount-card">
+                    <p class="discount-text">Скидка 20% на первый визит!</p>
+                    <a href="booking.html" class="discount-btn">Записаться</a>
+                </div>
+                <div class="discount-card">
+                    <p class="discount-text">При записи на 2 услуги - 10% скидка!</p>
+                    <a href="booking.html" class="discount-btn">Записаться</a>
+                </div>
+            </section> 
+            
+        </main>
+        <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Салон красоты. Все права защищены.</p>
+            <p>Разработано: <strong>Копыловой Е.Э</strong></p>
+            <address>
+                Для связи с разработчиком:<br>
+                Электронная почта: <a href="mailto:developer@mail.ru">developer@mail.ru</a>
+            </address>
+            <div class="social-buttons">
+                <a href="#" class="social-button facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-button twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-button instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-button linkedin"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-button youtube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="services.js"></script>
+</body>
+</html>

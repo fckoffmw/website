@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Салон красоты</title>
+    <link rel="icon" type="image/x-icon" href="https://avatars.mds.yandex.net/get-ydo/1653787/2a00000175a7d94c4ad28a73b92a14421346/diploma">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Sofadi+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="kurs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <!-- Верхняя черная полоска с контактной информацией -->
+        <div class="header-info">
+            <p>Пн-Сб: 8:00 to 17:00 | Позвоните нам: (+7)916-345-67-89</p>
+            <a href="booking.html" class="button">Записаться сейчас</a>
+        </div>
+        <!-- Логотип и навигация -->
+        <div class="header-container">
+            <div class="logo">
+                <img src="logo2.jpg.avif" alt="Логотип">
+            </div>
+            <!-- Бургер-меню и навигация -->
+        <div class="burger-container">
+            <div class="burger-menu" id="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav id="nav-bar">
+                <ul class="menu">
+                    <li><a href="aboutus.html" class="btn-nav">Тесты</a></li>
+                    <li><a href="services.html" class="btn-nav">Услуги</a></li>
+                    <li><a href="contacts.html" class="btn-nav">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Мы заботимся о наших клиентах</h1>
+                <p>
+                    Мы создаем красоту, предоставляя качественные услуги в дружелюбной обстановке
+                    по доступным ценам.
+                </p>
+                <a href="services.html" class="button">Подробнее</a>
+            </div>
+        </section>
+        <section id="cards-section">
+            <h2>Информация о процедурах</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="image1.jpg" alt="Изображение 1">
+                    <h3>Маникюр</h3>
+                    <p>Формы ногтей</p>
+                    <button onclick="toggleDetails(this)">Подробнее</button>
+                    <div class="details">
+                        <p>Мягкий квадрат, квадрат, миндаль, балерина, стилет</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="image2.jpg" alt="Изображение 2">
+                    <h3>Прически</h3>
+                    <p>Использумые средства</p>
+                    <button onclick="toggleDetails(this)">Подробнее</button>
+                    <div class="details">
+                        <p>Шампуни, кондиционеры, кремы, сыворотки, спреи для секущихся волос, маски, лосьоны</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="image3.avif" alt="Изображение 3">
+                    <h3>Ресницы</h3>
+                    <p>Используемые техники</p>
+                    <button onclick="toggleDetails(this)">Подробнее</button>
+                    <div class="details">
+                        <p>Пучковый метод, поресничное наращивание</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="gallery">
+            <h2>Известные модели</h2>
+            <div class="horizontal-gallery-container">
+                <button class="scroll-btn left" onclick="scrollGallery(-1)">&#8249;</button>
+                <div class="horizontal-gallery">
+                    <div class="gallery-item">
+                        <img src="model2.jpg" alt="Белла Хадид">
+                        <p>Белла Хадид</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="model3.jpg" alt="Кендал Дженнер">
+                        <p>Кендал Дженнер</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="model4.jpeg" alt="Наоми Кэмпбелл">
+                        <p>Наоми Кэмпбелл</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="model5.jpg" alt="Синди Кроуфорд">
+                        <p>Синди Кроуфорд</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="model6.jpeg" alt="Кристи Тарлингтон">
+                        <p>Кристи Тарлингтон</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="model7.webp" alt="Тайра Бэнкс">
+                        <p>Тайра Бэнкс</p>
+                    </div>
+                </div>
+                <button class="scroll-btn right" onclick="scrollGallery(1)">&#8250;</button>
+            </div>
+        </section>
+        <section id="beauty-trends">
+            <h2>Новинки и модные тенденции в маникюре 2024</h2>
+            <div class="trend-item">
+                <img src="trend1.jpg" alt="Тренд 1">
+                <div class="trend-content">
+                    <h3>Тренд 1: Яркие полоски</h3>
+                    <p class="short-description">Полтора десятка ярких небрежных мазков, нанесенных...</p>
+                    <p class="full-description">Полтора десятка ярких небрежных мазков, нанесенных с чувством и пониманием моды. Вы можете выбрать цветовую палитру от контрастных сочетаний до пастельных оттенков, идеально подходящих для весеннего сезона. Экспериментируйте с длинными и короткими ногтями, создавая уникальные акценты.</p>
+                    <a href="javascript:void(0);" class="read-more">Читать далее</a>
+                </div>
+            </div>
+            <div class="trend-item">
+                <img src="trend2.jpg" alt="Тренд 2">
+                <div class="trend-content">
+                    <h3>Тренд 2: Точки</h3>
+                    <p class="short-description">Длинные ногти, сужающиеся к кончикам...</p>
+                    <p class="full-description">Длинные ногти с сужающимся к кончику дизайном, покрытые точками в разных цветах — тренд, который возвращается в 2024 году. Точки создаются с помощью точечного маникюра, делая акцент на геометрические формы. Это идеальный вариант для любителей минимализма и стильных решений.</p>
+                    <a href="javascript:void(0);" class="read-more">Читать далее</a>
+                </div>
+            </div>
+            <div class="trend-item">
+                <img src="trend3.jpg" alt="Тренд 3">
+                <div class="trend-content">
+                    <h3>Тренд 3: Цветной френч</h3>
+                    <p class="short-description">Самый модный цвет лака для создания французского маникюра...</p>
+                    <p class="full-description">Цветной френч остается в моде, но с новыми яркими решениями! Бледные розовые или классические белые кончики уходят на второй план, уступая место сочным и ярким оттенкам. Этот маникюр прекрасно подходит для вечеринок, как летних, так и зимних, и может быть выполнен в различных текстурах.</p>
+                    <a href="javascript:void(0);" class="read-more">Читать далее</a>
+                </div>
+            </div>
+            <div class="trend-item">
+                <img src="trend4.jpg.webp" alt="Тренд 4">
+                <div class="trend-content">
+                    <h3>Тренд 4: Нейл-арт</h3>
+                    <p class="short-description">Если вы давно мечтали украсить ногти чем-нибудь эдаким...</p>
+                    <p class="full-description">Нейл-арт — это настоящий хит сезона. Разнообразие техник, от градиента до 3D-изображений, позволяет выбрать что-то уникальное для любого случая. Модный маникюр 2024 года предлагает вам выбрать дизайн в стиле минимализма или наоборот, экстравагантный и вызывающий. Чем ярче, тем лучше!</p>
+                    <a href="javascript:void(0);" class="read-more">Читать далее</a>
+                </div>
+            </div>
+        </section>                 
+        <hr class="divider">
+        <section id="reviews">
+            <h2>Оставьте свой отзыв</h2>
+        
+            <!-- Форма для добавления отзыва -->
+            <form id="review-form">
+                <label for="name">Ваше имя:</label>
+                <input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
+        
+                <label for="rating">Оценка (1-5):</label>
+                <select id="rating" name="rating" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+        
+                <label for="review">Отзыв:</label>
+                <textarea id="review" name="review" rows="4" placeholder="Напишите свой отзыв..." required></textarea>
+        
+                <button type="submit">Отправить отзыв</button>
+            </form>
+        
+            <!-- Блок для отображения отзывов -->
+            <div id="reviews-list">
+                <h3>Отзывы:</h3>
+                <div class="review-item">
+                    <strong>Мария</strong> (5): Отличный салон, очень довольна результатом!
+                </div>
+                <div class="review-item">
+                    <strong>Елена</strong> (4): Хорошие услуги, но немного подождала.
+                </div>
+            </div>
+        </section>                       
+    </main>
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Салон красоты. Все права защищены.</p>
+            <p>Разработано: <strong>Копыловой Е.Э</strong></p>
+            <address>
+                Для связи с разработчиком:<br>
+                Электронная почта: <a href="mailto:eduardovna.ek@mail.ru">developer@mail.ru</a>
+            </address>
+            <div class="social-buttons">
+                <a href="#" class="social-button facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-button twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-button instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-button linkedin"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-button youtube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="kurs.js"></script>
+</body>
+</html>

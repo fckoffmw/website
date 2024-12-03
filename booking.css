@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('background.jpg') center/cover no-repeat;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: rgba(30, 30, 30, 0.9); /* Полупрозрачный фон */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    width: 400px;
+    text-align: center;
+}
+
+h1, h2 {
+    font-weight: 300;
+}
+
+h1 {
+    margin-bottom: 10px;
+    font-size: 1.8em;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #bbb;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background: #333;
+    color: #fff;
+    font-size: 1em;
+}
+
+input:focus, select:focus, button:focus {
+    outline: none;
+    border-color: #6c63ff;
+    box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+}
+
+button {
+    background-color: #6c63ff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-transition 0.3s ease;
+}
+
+button:hover {
+    background-color: #5754d6;
+}
+
+footer {
+    margin-top: 20px;
+    font-size: 0.8em;
+    color: #888;
+}
+
+.robot-image {
+    margin: 20px auto;
+    max-width: 100px;
+}
+/* Стили для кнопки "Вернуться назад" */
+.back-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #531697;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #9755e8;
+}

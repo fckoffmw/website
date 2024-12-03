@@ -1,0 +1,575 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Верхняя черная полоска с информацией */
+.header-info {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.header-info p {
+    margin: 0;
+}
+
+.header-info .button {
+    background-color: #fff;
+    color: #000;
+    padding: 8px 15px;
+    font-size: 12px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+}
+/* Добавляем пульсацию при наведении */
+.header-info .button:hover {
+    animation: pulse-hover 0.6s ease-in-out;
+}
+
+/* Анимация пульсации */
+@keyframes pulse-hover {
+    0% {
+        transform: scale(1); /* Исходное состояние */
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: scale(1.1); /* Лёгкое увеличение */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Тень при увеличении */
+    }
+    100% {
+        transform: scale(1); /* Возврат к исходному состоянию */
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+/* Header (логотип + навигация) */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: #fff;
+}
+
+.logo img {
+    height: 50px;
+}
+
+#nav-bar .menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+#nav-bar .menu li {
+    display: inline-block;
+}
+
+#nav-bar .menu li a.btn-nav {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+#nav-bar .menu li a.btn-nav:hover {
+    background-color: #444;
+}
+/* Основные стили для бургер-меню */
+.burger-menu {
+    display: none;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.burger-menu span {
+    display: block;
+    height: 3px;
+    background: black;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Анимация бургер-меню при активном состоянии */
+.burger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+}
+
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+}
+
+/* Скрываем меню по умолчанию */
+#nav-bar {
+    display: none; /* Скрыто по умолчанию */
+    position: absolute;
+    top: 125px; /* Расположено ниже кнопки бургер */
+    right: 10px;
+    background: #e2c9c9;
+    border-radius: 8px;
+    padding: 10px 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    opacity: 0; /* Для анимации */
+    visibility: hidden; /* Скрываем визуально */
+    transform: translateY(-10px); /* Начальная позиция для анимации */
+    transition: all 0.3s ease; /* Плавное появление */
+}
+
+/* Меню при активном состоянии */
+#nav-bar.active {
+    display: flex; /* Появляется меню */
+    opacity: 1; /* Показываем */
+    visibility: visible; /* Делаем видимым */
+    transform: translateY(0); /* Возвращаем в положение */
+}
+
+/* Адаптация: бургер-меню только на мобильных */
+@media (max-width: 768px) {
+    .burger-menu {
+        display: flex; /* Показываем бургер-меню */
+    }
+
+    #nav-bar {
+        display: none; /* Скрываем меню по умолчанию */
+    }
+
+    #nav-bar.active {
+        display: flex; /* Появляется меню при клике */
+    }
+}
+
+/* Адаптация: на больших экранах горизонтальное меню */
+@media (min-width: 769px) {
+    .burger-menu {
+        display: none; /* Скрываем бургер-меню */
+    }
+
+    #nav-bar {
+        display: flex; /* Горизонтальное меню */
+        position: static;
+        flex-direction: row;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+}
+
+
+/* Стили для разделителя */
+.divider {
+    border: 0; /* Убираем стандартную границу */
+    height: 20px; /* Толщина полоски */
+    background-color: #000; /* Черный цвет */
+  }
+
+#map-container h2 {
+    margin-bottom: 20px; /* Отступ снизу заголовка */
+    color: #040303; /* Цвет текста (опционально) */
+    text-align: center; /* Центрирование заголовка (опционально) */
+}
+
+#yandex-map {
+    display: inline-block; /* Оставляем карту в центре */
+    width: 100%; /* Подстраиваем ширину под контейнер */
+    max-width: 699px; /* Максимальная ширина карты */
+    height: 502px; /* Высота карты */
+    background-color: #e0e0e0; /* Фон карты до загрузки (серый цвет) */
+    border-radius: 8px; /* Скругленные углы для согласованности с контейнером */
+    border: 10px solid #000000;
+}
+
+
+/* Основной контейнер футера */
+footer {
+    background-color: #111; /* Темный фон для футера */
+    color: #fff; /* Белый текст */
+    padding: 20px 0; /* Отступы сверху и снизу */
+    text-align: center; /* Центрируем весь текст */
+    font-size: 1rem; /* Умеренный размер текста */
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.3); /* Тень сверху */
+}
+
+.footer-container p {
+    margin: 10px 0; /* Отступы между текстами */
+    color: #ccc; /* Немного приглушенный белый цвет для текста */
+}
+
+.footer-container strong {
+    color: #fff; /* Выделяем имя разработчика белым цветом */
+}
+
+/* Адрес */
+footer address {
+    font-style: normal; /* Убираем курсив для текста адреса */
+    margin: 15px 0;
+    color: #aaa; /* Серый цвет текста */
+}
+
+footer address a {
+    color: #fff; /* Цвет ссылки */
+    text-decoration: none; /* Убираем подчеркивание */
+    font-weight: bold;
+}
+
+footer address a:hover {
+    color: #ffd700; /* Золотой цвет при наведении */
+}
+
+/* Социальные кнопки */
+.social-buttons {
+    display: flex;
+    justify-content: center; /* Центрируем кнопки */
+    gap: 15px; /* Расстояние между кнопками */
+    margin-top: 15px;
+}
+
+.social-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Круглая форма */
+    background-color: #444; /* Темно-серый фон */
+    color: #fff; /* Белый цвет иконок */
+    font-size: 1.2rem; /* Увеличенный размер иконок */
+    transition: background-color 0.3s, transform 0.3s; /* Плавный эффект */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+.social-button:hover {
+    background-color: #ffd700; /* Золотой цвет при наведении */
+    transform: scale(1.2); /* Увеличение кнопки */
+}
+
+/* Индивидуальные цвета для каждой соцсети */
+.social-button.facebook:hover {
+    background-color: #3b5998; /* Facebook синий */
+}
+
+.social-button.twitter:hover {
+    background-color: #1da1f2; /* Twitter голубой */
+}
+
+.social-button.instagram:hover {
+    background-color: #e4405f; /* Instagram розовый */
+}
+
+.social-button.linkedin:hover {
+    background-color: #0077b5; /* LinkedIn синий */
+}
+
+.social-button.youtube:hover {
+    background-color: #ff0000; /* YouTube красный */
+}
+
+/* Общий стиль секции */
+#contact-buttons {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #000000, #ffffff);
+    margin: 0;
+    width: 100%;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок и текст */
+#contact-buttons h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+#contact-buttons p {
+    font-size: 16px;
+    color: #e0e0e0;
+    margin-bottom: 25px;
+}
+
+/* Контейнер кнопок */
+.buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Кнопки */
+.contact-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+    background: linear-gradient(135deg, #333333, #777777);
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    animation: fadeIn 1s ease;
+}
+
+/* Анимация кнопок */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Эффекты при наведении */
+.contact-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #555555, #aaaaaa);
+}
+
+/* Разделитель */
+.separator {
+    width: 80%;
+    margin: 0 auto 15px;
+    height: 2px;
+    background: #ffffff;
+    border: none;
+}
+
+/* Дисклеймер */
+.disclaimer {
+    font-size: 13px;
+    color: #e0e0e0;
+    margin-top: 10px;
+}
+
+.disclaimer a {
+    color: #ffffff;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.disclaimer a:hover {
+    color: #cccccc;
+}
+
+/* Контейнер для центрирования карточек */
+#locations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Карточки с уменьшенной шириной */
+.location-item {
+    background: linear-gradient(135deg, #000000, #d5d3d3); /* Градиент от чёрного к белому */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px 0;
+    width: 80%;
+    max-width: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.location-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Пульсирующая метка */
+.location-item h3:before {
+    content: "📍";
+    display: inline-block;
+    margin-right: 10px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+}
+
+/* Текст поверх градиента */
+.location-item h3 {
+    font-size: 1.5rem;
+    color: #ffffff; /* Белый текст для контраста */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Тень для читаемости */
+}
+
+.location-item p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #f0f0f0; /* Светло-серый текст */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Анимация при появлении секции */
+#locations {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    /* Уменьшаем внутренние отступы и шрифты */
+    body {
+        font-size: 14px;
+    }
+
+    /* Верхняя информация: уменьшение размера текста и отступов */
+    .header-info {
+        padding: 8px 15px;
+        font-size: 12px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-info .button {
+        padding: 6px 10px;
+        font-size: 10px;
+    }
+
+    /* Заголовок и меню */
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+
+    #nav-bar {
+        top: 70px;
+        right: 5px;
+        padding: 8px 10px;
+    }
+
+    #nav-bar .menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #nav-bar .menu li a.btn-nav {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+
+    /* Секции контактных кнопок */
+    #contact-buttons h2 {
+        font-size: 24px;
+    }
+
+    #contact-buttons p {
+        font-size: 14px;
+    }
+
+    .buttons-container {
+        gap: 10px;
+    }
+
+    .contact-button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    /* Локации */
+    #locations {
+        padding: 15px;
+    }
+
+    .location-item {
+        width: 95%;
+        margin: 10px 0;
+    }
+
+    .location-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .location-item p {
+        font-size: 0.9rem;
+    }
+
+    /* Карта */
+    #yandex-map {
+        max-width: 100%;
+        height: 300px;
+    }
+
+    /* Футер */
+    footer {
+        padding: 15px 0;
+        font-size: 0.9rem;
+    }
+
+    .social-buttons {
+        gap: 10px;
+    }
+
+    .social-button {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    /* Дисклеймер */
+    .disclaimer {
+        font-size: 12px;
+    }
+}
+
+
+
